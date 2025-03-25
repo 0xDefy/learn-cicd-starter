@@ -34,5 +34,11 @@ jobs:
         with:
           go-version: "1.23.0"
 
+      - name: Set up staticcheck
+        uses: dominikh/staticcheck-action@v1
+
       - name: Run gofmt
         run: test -z $(go fmt ./...)
+
+      - name: Run staticcheck
+        run: staticcheck ./...
